@@ -3,6 +3,7 @@
 
 Tired of wondering if someone’s messing with your Wi-Fi?  
 Wi-Fi Guardian gives you eyes on the airwaves. Detect deauth attacks, watch devices on your LAN, and get real-time alerts — all with a sleek, modern GUI.  
+This can be used with Windows or Linux.. but we highly advise using Linux
 
 ---
 
