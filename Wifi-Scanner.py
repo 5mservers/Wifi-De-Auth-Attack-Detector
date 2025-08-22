@@ -1,4 +1,3 @@
-
 from __future__ import annotations
 
 import os
@@ -7,6 +6,7 @@ import time
 import socket
 import threading
 import logging
+import logging.handlers
 from dataclasses import dataclass, field
 from collections import defaultdict, deque
 from typing import Deque, Dict, Optional, Tuple, List
@@ -184,7 +184,6 @@ class DeauthDetector(QtCore.QObject):
 
         dq = self._by_bssid[bssid]
         dq.append(now)
-        # Purge old
         cutoff = now - self.window_seconds
         while dq and dq[0] < cutoff:
             dq.popleft()
@@ -360,8 +359,8 @@ class AlertsTable(QtWidgets.QTableWidget):
         super().__init__(0, len(self.HEADERS))
         self.setHorizontalHeaderLabels(self.HEADERS)
         self.horizontalHeader().setStretchLastSection(True)
-        self.setSelectionBehavior(self.SelectRows)
-        self.setEditTriggers(self.NoEditTriggers)
+        self.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.setStyleSheet("QTableWidget{background:#0b1220;color:#e2e8f0;border-radius:12px;}"
                           "QHeaderView::section{background:#1f2937;color:#cbd5e1;border:0;padding:8px;}")
         self.verticalHeader().setVisible(False)
@@ -405,8 +404,8 @@ class DevicesTable(QtWidgets.QTableWidget):
         super().__init__(0, len(self.HEADERS))
         self.setHorizontalHeaderLabels(self.HEADERS)
         self.horizontalHeader().setStretchLastSection(True)
-        self.setSelectionBehavior(self.SelectRows)
-        self.setEditTriggers(self.NoEditTriggers)
+        self.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.setStyleSheet("QTableWidget{background:#0b1220;color:#e2e8f0;border-radius:12px;}"
                           "QHeaderView::section{background:#1f2937;color:#cbd5e1;border:0;padding:8px;}")
         self.verticalHeader().setVisible(False)
@@ -671,4 +670,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main() 
