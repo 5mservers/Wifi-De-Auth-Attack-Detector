@@ -59,4 +59,5 @@ Don’t go sniffing where you don’t have permission.
 ---
 
 ## 📸 Screenshots
-Images & Video Coming Soon!
+![Image](https://i.imgur.com/50EZGlK.jpeg)
+
